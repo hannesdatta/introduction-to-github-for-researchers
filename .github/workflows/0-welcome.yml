@@ -16,6 +16,7 @@ permissions:
   # Need `contents: read` to checkout the repository.
   # Need `contents: write` to update the step metadata.
   contents: write
+  issues: write
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
