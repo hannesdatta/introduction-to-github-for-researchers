@@ -16,7 +16,7 @@ on:
         required: true
         default: 'Default Issue Title'
       issue_body:
-        description: 'Create a Branch from this Issue. I'll reply then. '
+        description: "Create a Branch from this Issue. I'll reply then."
         required: true
         default: 'Default Issue Body'
 
