@@ -10,15 +10,6 @@ on:
     push:
       branches:
         - main
-    inputs:
-      issue_title:
-        description: 'Clarify Project Title in Readme'
-        required: true
-        default: 'Default Issue Title'
-      issue_body:
-        description: "Create a Branch from this Issue. I'll reply then."
-        required: true
-        default: 'Default Issue Body'
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -63,14 +54,15 @@ jobs:
         with:
           fetch-depth: 0 # Let's get all the branches.
 
-      # In README.md, switch step 0 for step 1.
-      - name: Create Issue
-        uses: imjohnbo/issue-bot@v3
+      - uses: actions/checkout@v3
+      - name: create an issue
+        uses: dacbd/create-issue-action@main
         with:
-          title: "${{ github.event.inputs.issue_title }}"
-          body: "${{ github.event.inputs.issue_body }}"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
+          token: ${{ github.token }}
+          title: Simple test issue
+          body: my new issue
+            
+      # In README.md, switch step 0 for step 1.
       - name: Update to step 1
         uses: skills/action-update-step@v2
         with:
