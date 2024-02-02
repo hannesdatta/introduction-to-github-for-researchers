@@ -54,7 +54,6 @@ jobs:
         with:
           fetch-depth: 0 # Let's get all the branches.
 
-      - uses: actions/checkout@v3
       - name: create an issue
         uses: dacbd/create-issue-action@main
         with:
