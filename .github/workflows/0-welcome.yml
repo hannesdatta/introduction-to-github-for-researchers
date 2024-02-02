@@ -7,9 +7,18 @@ name: Step 0, Welcome
 # Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+    push:
+      branches:
+        - main
+    inputs:
+      issue_title:
+        description: 'Clarify Project Title in Readme'
+        required: true
+        default: 'Default Issue Title'
+      issue_body:
+        description: 'Create a Branch from this Issue. I'll reply then. '
+        required: true
+        default: 'Default Issue Body'
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -62,3 +71,11 @@ jobs:
           from_step: 0
           to_step: 1
           branch_name: my-first-branch
+
+      - name: Create Issue
+        uses: imjohnbo/issue-bot@v3
+        with:
+          title: "${{ github.event.inputs.issue_title }}"
+          body: "${{ github.event.inputs.issue_body }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

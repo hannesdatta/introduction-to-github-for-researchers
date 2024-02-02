@@ -7,7 +7,7 @@
   Add your open source license, GitHub uses MIT license.
 -->
 
-# Introduction to GitHub
+# Introduction to GitHub for Researchers
 
 _Get started using GitHub in less than an hour._
 
@@ -31,10 +31,14 @@ People use GitHub to build some of the most advanced technologies in the world. 
 
 In this course, you will:
 
-1. Create a branch
-2. Commit a file
+1. View Issues and create a branch
+2. Edit and Commit a File
 3. Open a pull request
 4. Merge your pull request
+5. Write your own Issue
+6. Respond to Issue
+7. Merge another user's pull request
+
 
 ### How to start this course
 
